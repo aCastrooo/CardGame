@@ -1,6 +1,7 @@
 # Card Royale - Fulltime Project Card Game [![Travis branch](https://img.shields.io/travis/rust-lang/rust/master.svg)]()  
 This is a card game implementation for Maxeta Technologies  
 It was created in the Eclipse Development Environment
+Language Used: Java
 
 ## About the game:
 This is a card game that pits up to 4 players against each other.
@@ -40,7 +41,9 @@ Players may only hold up to 3 cards in their hand.
 Running is simple. In your terminal, cd to the /src/ folder where you downloaded this and copy/paste the following in there:
   
 ```terminal  
-javac Gameplay.java Player.java Card.java Utilities.java  
+javac -XDignore.symbol.file Gameplay.java Player.java Card.java Utilities.java  
 java Gameplay  
-```
+```  
+  
+Another way to run is to import the project into Eclipse and run it there. 
   

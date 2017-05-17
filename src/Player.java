@@ -250,8 +250,9 @@ public class Player{
             try{
                 cardSelect = Integer.parseInt(read.readLine());
             }
-            catch(NumberFormatException e){
-                System.out.println("\nYou must enter the number corresponding to the card.\n\n");
+            catch(NumberFormatException | ArrayIndexOutOfBoundsException e){
+                System.out.println("\n\nYou must enter the number corresponding to the card.");
+                continue;
             }
             
             if((cardSelect - 1) < playerHand.length){

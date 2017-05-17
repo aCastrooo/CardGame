@@ -182,7 +182,7 @@ public class Gameplay{
                 }
             }
             catch(NumberFormatException e){
-                System.out.println("\nYou must enter either 2, 3, or 4.\n\n");
+                System.out.println("\nYou must enter either 2, 3, or 4");
             }
             
         }
