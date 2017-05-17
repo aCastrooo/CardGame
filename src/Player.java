@@ -159,6 +159,11 @@ public class Player{
         for(int i = 0; i < playerHand.length; i++){
             
             if(playerHand[i] == null){
+            	
+            	if(deck[0] == null){
+            		return null;
+            	}
+            	
                 playerHand[i] = deck[0];
                 
                 //To make sure the player's score gets updated if they continually draw penalties
@@ -298,7 +303,6 @@ public class Player{
     private boolean drawAnother(Card[] deck, int i) throws IOException{
     	
     	String yn = "";
-    	String anyKey = "";
     	BufferedReader read = new BufferedReader(new InputStreamReader(System.in));
     	
     	while(true){
@@ -314,7 +318,7 @@ public class Player{
 		    	}
 		    	else{
 		    		System.out.println("Press any key to draw:");
-		    		anyKey = read.readLine();
+		    		yn = read.readLine();
 		        	deck = Utilities.shiftDeck(deck);
 		            playerHand[i] = deck[0];
 		            return true;
@@ -336,6 +340,7 @@ public class Player{
      * @throws IOException 
      * @throws InterruptedException 
      */
+	@SuppressWarnings("deprecation")
 	public void leaveGame(Player[] players) throws IOException, InterruptedException {
 		
     	String pathToSound = "C:/Users/Anthony/workspace/CardGame/sounds/game_over.wav";

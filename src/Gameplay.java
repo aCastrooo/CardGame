@@ -37,6 +37,7 @@ public class Gameplay{
      * @throws IOException 
      * @throws InterruptedException 
      */
+	@SuppressWarnings("deprecation")
 	public static void playGame() throws IOException, InterruptedException{
     	
     	//Path to the audio file
@@ -67,7 +68,7 @@ public class Gameplay{
         	if(players[i] != null){
         		
 	            //Check to see if the current player has a score 21 or greater and is leading by 2 points. If not, continue the game
-	            if(players[i].getScore() >= 4 && Utilities.leadingByTwo(players[i], players)){
+	            if(players[i].getScore() >= 21 && Utilities.leadingByTwo(players[i], players)){
 	                congrats(players[i]);
 	            }
 	            
@@ -116,6 +117,11 @@ public class Gameplay{
             anyKey = read.readLine();
             deck = players[i].draw(deck);
             
+            //If the deck runs out of cards, we end the game and the player with the highest score wins
+            if(deck == null){
+            	Utilities.calculateScore(players, 1);
+            }
+            
             
             //Lists the options that the player can do
             listOptions(players[i]);
@@ -123,7 +129,7 @@ public class Gameplay{
             //If i reaches the last element of the players array, we need to get back to the start again
             if(i == players.length-1){
                 i = 0;
-                Utilities.calculateScore(players);
+                Utilities.calculateScore(players, 0);
                 turn++;
                 continue;
             }
@@ -195,6 +201,7 @@ public class Gameplay{
      * @throws IOException 
      * @throws InterruptedException 
      */
+	@SuppressWarnings("deprecation")
 	public static void congrats(Player player) throws IOException, InterruptedException{
     	String pathToSound = "C:/Users/Anthony/workspace/CardGame/sounds/win.wav";
     	

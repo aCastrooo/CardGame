@@ -227,8 +227,10 @@ public class Utilities{
      * Calculates the score after all players have played their cards
      *
      * @param    players The players in the game
+     * @throws InterruptedException 
+     * @throws IOException 
      */
-    public static void calculateScore(Player[] players){
+    public static void calculateScore(Player[] players, int deckOut) throws IOException, InterruptedException{
         
         Player topScorer = null;
         int topRank = 0;
@@ -249,6 +251,10 @@ public class Utilities{
         }
         
         topScorer.updateScore(2);
+        
+        if(deckOut == 1){
+        	Gameplay.congrats(topScorer);
+        }
         
         System.out.println("|||****************************|||");
         System.out.println("|||    Winner of the round:    |||");
