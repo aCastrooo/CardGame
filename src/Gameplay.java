@@ -73,16 +73,16 @@ public class Gameplay{
 	            
         	}
         	else{
-        		if(i == players.length){
-        			i = 0;
-        			turn++;
-        			continue;
-                }
+				if(i == players.length){
+					i = 0;
+					turn++;
+					continue;
+				}
         		else{
-        			i++;
-        			continue;
-        			}
+					i++;
+					continue;
         		}
+        	}
         	
             //If it is the first turn of the game, each player is given 2 cards to start
             if(turn == 0){

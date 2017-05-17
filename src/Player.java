@@ -244,7 +244,6 @@ public class Player{
             }
             
         }
-        
         playCard(playerHand[cardSelect -1]);
     }
    
@@ -262,7 +261,6 @@ public class Player{
         }else{
             System.out.println("\nYou cannot play " + toPlay.cardName + ". It is not in your hand.\n");
         }
-            
     }
     
         
@@ -350,11 +348,11 @@ public class Player{
 		//If all players leave the game, or one player is left, the game will end
 		if(nullCount == players.length){
 			
-            System.out.println("\n|||****************************|||");
-            System.out.println("|||    All players have left   |||");
-            System.out.println("|||      The game will end     |||");
-            System.out.println("|||****************************|||");
-            
+			System.out.println("\n|||****************************|||");
+			System.out.println("|||    All players have left   |||");
+			System.out.println("|||      The game will end     |||");
+			System.out.println("|||****************************|||");
+			
 			//Handles the audio fx for game over/no win
 			InputStream in = new FileInputStream(pathToSound);
 			AudioStream sound = new AudioStream(in);
@@ -363,7 +361,7 @@ public class Player{
 			AudioPlayer.player.stop();
 			sound.close(); 
 			in.close();
-    
+			
 			System.exit(0);
 		}
 		else if(players.length - nullCount == 1){
