@@ -1,6 +1,4 @@
-[![Travis branch](https://img.shields.io/travis/rust-lang/rust/master.svg)]()  
-
-# Card Royale
+# Card Royale [![Travis branch](https://img.shields.io/travis/rust-lang/rust/master.svg)]()  
 This is a card game implementation for Maxeta Technologies
 
 ## About the game:
