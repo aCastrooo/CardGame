@@ -1,6 +1,8 @@
 # Card Royale
 This is a card game implementation for Maxeta Technologies
 
+[![Travis branch](https://img.shields.io/travis/rust-lang/rust/master.svg)]()  
+
 ## About the game:
 This is a card game that pits up to 4 players against each other.
 The aim of the game is to put down a card that is worth more than your opponents.    
