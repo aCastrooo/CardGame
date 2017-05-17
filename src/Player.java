@@ -51,6 +51,12 @@ public class Player{
      * nullCount keeps track of how many players have left the game
      */
 	private static int nullCount;
+	
+	
+	/**
+	 * Keeps track of what the number of cards are in a player's hand
+	 */
+	private int numCardsInHand;
 
     
     
@@ -73,6 +79,7 @@ public class Player{
         
         playerDiscardPile = new Card[56];
         
+        numCardsInHand = 0;
     }
     
     
@@ -165,15 +172,20 @@ public class Player{
             	}
             	
                 playerHand[i] = deck[0];
+                numCardsInHand += 1;
                 
                 //To make sure the player's score gets updated if they continually draw penalties
                 while(playerHand[i].getCardName().equals("Penalty")){
                 	System.out.println("Oh No! You drew a penalty card!\n"
                 			+ "You lose 1 point!");
                    
-                	updateScore(-1);
-                	discard(playerHand[i]);
-                	
+                	//As long as there are still cards in the player's hands, we can discard
+                	if(numCardsInHand != 0){
+                    	updateScore(-1);
+                    	discard(playerHand[i]);
+                    	numCardsInHand -= 1;
+                	}
+                
                 	boolean drew = drawAnother(deck, i);
                 	if(!drew){
                 		break;
@@ -228,7 +240,7 @@ public class Player{
         BufferedReader read = new BufferedReader(new InputStreamReader(System.in));
         
         //The number of the card the player wishes to play
-        int cardSelect;
+        int cardSelect = 0;
         
         while(true){
             
@@ -237,14 +249,22 @@ public class Player{
         
             try{
                 cardSelect = Integer.parseInt(read.readLine());
-                break;
             }
             catch(NumberFormatException e){
                 System.out.println("\nYou must enter the number corresponding to the card.\n\n");
             }
             
+            if((cardSelect - 1) < playerHand.length){
+            	if(playerHand[cardSelect - 1] != null){
+	                playCard(playerHand[cardSelect - 1]);
+	                break;
+            	}
+            }
+            else{
+            	System.out.println("\nSelect a proper card");
+            }
+            
         }
-        playCard(playerHand[cardSelect -1]);
     }
    
         
@@ -274,9 +294,11 @@ public class Player{
     private int checkHand(Card toCheck){
         
         for(int i = 0; i < playerHand.length; i++){
-            if(playerHand[i].cardName.equals(toCheck.cardName)){
-                return i;
-            }
+        	if(playerHand[i] != null){
+	            if(playerHand[i].cardName.equals(toCheck.cardName)){
+	                return i;
+	            }
+        	}
         }
         return -1;
     }
@@ -312,6 +334,7 @@ public class Player{
 		    		yn = read.readLine();
 		    		deck = Utilities.shiftDeck(deck);
 		    		playerHand[i] = deck[0];
+		    		numCardsInHand += 1;
 		    		return true;
 		    	}
 	    	}
@@ -357,7 +380,7 @@ public class Player{
 			InputStream in = new FileInputStream(pathToSound);
 			AudioStream sound = new AudioStream(in);
 			AudioPlayer.player.start(sound);
-			Thread.sleep(2000);
+			Thread.sleep(1500);
 			AudioPlayer.player.stop();
 			sound.close(); 
 			in.close();
@@ -374,7 +397,7 @@ public class Player{
 			InputStream in = new FileInputStream(pathToSound);
 			AudioStream sound = new AudioStream(in);
 			AudioPlayer.player.start(sound);
-			Thread.sleep(2000);
+			Thread.sleep(1500);
 			AudioPlayer.player.stop();
 			sound.close(); 
 			in.close();

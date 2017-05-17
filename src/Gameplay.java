@@ -64,26 +64,6 @@ public class Gameplay{
         
         while(true){
         	
-        	//Check if the player is no longer there. If he is not there, go onto the next player
-        	if(players[i] != null){
-	            //Check to see if the current player has a score 21 or greater and is leading by 2 points. If not, continue the game
-	            if(players[i].getScore() >= 21 && Utilities.leadingByTwo(players[i], players)){
-	                congrats(players[i]);
-	            }
-	            
-        	}
-        	else{
-				if(i == players.length){
-					i = 0;
-					turn++;
-					continue;
-				}
-        		else{
-					i++;
-					continue;
-        		}
-        	}
-        	
             //If it is the first turn of the game, each player is given 2 cards to start
             if(turn == 0){
                 deck = Utilities.drawInitial(players[i], deck);
@@ -103,12 +83,13 @@ public class Gameplay{
             InputStream in = new FileInputStream(pathToSound);
             AudioStream sound = new AudioStream(in);
             AudioPlayer.player.start(sound);
-            Thread.sleep(2000);
+            Thread.sleep(500);
             AudioPlayer.player.stop();
             sound.close(); 
             in.close();
         	
-            System.out.println("\nPress any key to draw:");
+            System.out.println("|||   Press any key to draw:");
+            System.out.println("|||***************************");
             BufferedReader read = new BufferedReader(new InputStreamReader(System.in));
             anyKey = read.readLine();
             deck = players[i].draw(deck);
@@ -125,7 +106,30 @@ public class Gameplay{
             //If i reaches the last element of the players array, we need to get back to the start again
             if(i == players.length-1){
                 i = 0;
+                
                 Utilities.calculateScore(players, 0);
+                
+               	//Check if the player is no longer there. If he is not there, go onto the next player
+            	if(players[i] != null){
+            		
+    	            //Check to see if the current player has a score 21 or greater and is leading by 2 points. If not, continue the game
+    	            if(players[i].getScore() >= 21 && Utilities.leadingByTwo(players[i], players)){
+    	                congrats(players[i]);
+    	            }
+    	            
+            	}
+            	else{
+    				if(i == players.length){
+    					i = 0;
+    					turn++;
+    					continue;
+    				}
+            		else{
+    					i++;
+    					continue;
+            		}
+            	}
+            	
                 turn++;
                 continue;
             }
@@ -158,6 +162,8 @@ public class Gameplay{
             System.out.println("|||   2) Play a card      |||");
             System.out.println("|||   3) Who's winning?   |||");
             System.out.println("|||   4) Quit the game    |||");
+            System.out.println("|||***************************");
+
 
             try{
                 option = Integer.parseInt(read.readLine());
@@ -199,6 +205,8 @@ public class Gameplay{
         System.out.println("|||****************************|||");
         System.out.println("|||       Congratulations!     |||");
         System.out.println("|||        " + player.getPlayerName() + " wins!");
+        System.out.println("|||****************************|||");
+
         
         //Handles the audio fx for game win
     	InputStream in = new FileInputStream(pathToSound);
