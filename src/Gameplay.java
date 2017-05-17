@@ -66,27 +66,23 @@ public class Gameplay{
         	
         	//Check if the player is no longer there. If he is not there, go onto the next player
         	if(players[i] != null){
-        		
 	            //Check to see if the current player has a score 21 or greater and is leading by 2 points. If not, continue the game
 	            if(players[i].getScore() >= 21 && Utilities.leadingByTwo(players[i], players)){
 	                congrats(players[i]);
 	            }
 	            
-        	
         	}
         	else{
-        		
         		if(i == players.length){
-                    i = 0;
-                    turn++;
-                    continue;
+        			i = 0;
+        			turn++;
+        			continue;
                 }
         		else{
         			i++;
         			continue;
+        			}
         		}
-        		
-        	}
         	
             //If it is the first turn of the game, each player is given 2 cards to start
             if(turn == 0){
@@ -104,13 +100,13 @@ public class Gameplay{
             System.out.println("|||   " + players[i].getPlayerName() + "'s turn   ");
             
             //Handles the audio fx for the next turn notification sound
-        	InputStream in = new FileInputStream(pathToSound);
-        	AudioStream sound = new AudioStream(in);
-        	AudioPlayer.player.start(sound);
-        	Thread.sleep(2000);
-        	AudioPlayer.player.stop();
-        	sound.close(); 
-        	in.close();
+            InputStream in = new FileInputStream(pathToSound);
+            AudioStream sound = new AudioStream(in);
+            AudioPlayer.player.start(sound);
+            Thread.sleep(2000);
+            AudioPlayer.player.stop();
+            sound.close(); 
+            in.close();
         	
             System.out.println("\nPress any key to draw:");
             BufferedReader read = new BufferedReader(new InputStreamReader(System.in));
@@ -136,7 +132,6 @@ public class Gameplay{
             
             //Next players turn
             i++;
-            
         }
         
     }
@@ -165,7 +160,6 @@ public class Gameplay{
             System.out.println("|||   4) Quit the game    |||");
 
             try{
-                
                 option = Integer.parseInt(read.readLine());
                 
                 switch(option){
@@ -180,12 +174,9 @@ public class Gameplay{
                     default: System.out.println("\n|||   You must select an option   |||");
                         break;
                 }
-                
             }
             catch(NumberFormatException e){
-                
                 System.out.println("\nYou must enter either 2, 3, or 4.\n\n");
-                
             }
             
         }
@@ -259,13 +250,11 @@ public class Gameplay{
                     System.out.println("\nYou must enter either 2, 3, or 4.\n\n");
                     continue;
                 }
-                
             }
             catch(NumberFormatException e){
-                
                 System.out.println("\nYou must enter either 2, 3, or 4.\n\n");
-                
             }
+            
         }
         
         players = Utilities.setUpPlayers(numPlayers);

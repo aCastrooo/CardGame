@@ -172,7 +172,8 @@ public class Player{
                 			+ "You lose 1 point!");
                    
                 	updateScore(-1);
-                    discard(playerHand[i]);
+                	discard(playerHand[i]);
+                	
                 	boolean drew = drawAnother(deck, i);
                 	if(!drew){
                 		break;
@@ -235,15 +236,11 @@ public class Player{
             System.out.println("\nWhich card would you like to select? Choose the number next to the card");
         
             try{
-
                 cardSelect = Integer.parseInt(read.readLine());
                 break;
-
             }
             catch(NumberFormatException e){
-            
                 System.out.println("\nYou must enter the number corresponding to the card.\n\n");
-            
             }
             
         }
@@ -279,15 +276,11 @@ public class Player{
     private int checkHand(Card toCheck){
         
         for(int i = 0; i < playerHand.length; i++){
-            
             if(playerHand[i].cardName.equals(toCheck.cardName)){
                 return i;
             }
-            
         }
-        
         return -1;
-        
     }
     
     
@@ -319,9 +312,9 @@ public class Player{
 		    	else{
 		    		System.out.println("Press any key to draw:");
 		    		yn = read.readLine();
-		        	deck = Utilities.shiftDeck(deck);
-		            playerHand[i] = deck[0];
-		            return true;
+		    		deck = Utilities.shiftDeck(deck);
+		    		playerHand[i] = deck[0];
+		    		return true;
 		    	}
 	    	}
 	    	else{
@@ -329,8 +322,6 @@ public class Player{
 	    		continue;
 	    	}
     	}
-    	
-
     }
 
 
@@ -345,11 +336,11 @@ public class Player{
 		
     	String pathToSound = "C:/Users/Anthony/workspace/CardGame/sounds/game_over.wav";
 		    	
-    	//Sets the player who decided to leave to null in the players array and updates the nullCount
+		//Sets the player who decided to leave to null in the players array and updates the nullCount
 		for(int i = 0; i < players.length; i++){
 			if(players[i] != null){
 				if(players[i].getPlayerID() == getPlayerID()){
-			        System.out.println("Thanks for playing!");
+					System.out.println("Thanks for playing!");
 					players[i] = null;
 					nullCount++;
 				}
@@ -364,35 +355,34 @@ public class Player{
             System.out.println("|||      The game will end     |||");
             System.out.println("|||****************************|||");
             
-            //Handles the audio fx for game over/no win
-        	InputStream in = new FileInputStream(pathToSound);
-        	AudioStream sound = new AudioStream(in);
-        	AudioPlayer.player.start(sound);
-        	Thread.sleep(2000);
-        	AudioPlayer.player.stop();
-        	sound.close(); 
-        	in.close();
-            
-            System.exit(0);
+			//Handles the audio fx for game over/no win
+			InputStream in = new FileInputStream(pathToSound);
+			AudioStream sound = new AudioStream(in);
+			AudioPlayer.player.start(sound);
+			Thread.sleep(2000);
+			AudioPlayer.player.stop();
+			sound.close(); 
+			in.close();
+    
+			System.exit(0);
 		}
 		else if(players.length - nullCount == 1){
-            System.out.println("\n|||****************************|||");
-            System.out.println("|||   Only one player remains  |||");
-            System.out.println("|||      The game will end     |||");
-            System.out.println("|||****************************|||");
-            
-            //Handles the audio fx for game over/no win
-        	InputStream in = new FileInputStream(pathToSound);
-        	AudioStream sound = new AudioStream(in);
-        	AudioPlayer.player.start(sound);
-        	Thread.sleep(2000);
-        	AudioPlayer.player.stop();
-        	sound.close(); 
-        	in.close();
-            
-            System.exit(0);
+			System.out.println("\n|||****************************|||");
+			System.out.println("|||   Only one player remains  |||");
+			System.out.println("|||      The game will end     |||");
+			System.out.println("|||****************************|||");
+	        
+			//Handles the audio fx for game over/no win
+			InputStream in = new FileInputStream(pathToSound);
+			AudioStream sound = new AudioStream(in);
+			AudioPlayer.player.start(sound);
+			Thread.sleep(2000);
+			AudioPlayer.player.stop();
+			sound.close(); 
+			in.close();
+	        
+			System.exit(0);
 		}
-		
 	}
 
 
@@ -418,11 +408,11 @@ public class Player{
 			}
 		}
 		
-        System.out.println("\n|||****************************|||");
-        System.out.println("|||            " + highestScorer.getPlayerName());
-        System.out.println("|||  Is currently leading with |||");
-        System.out.println("|||          " + highestScore + " points");
-        System.out.println("|||****************************|||");
+		System.out.println("\n|||****************************|||");
+		System.out.println("|||            " + highestScorer.getPlayerName());
+		System.out.println("|||  Is currently leading with |||");
+		System.out.println("|||          " + highestScore + " points");
+		System.out.println("|||****************************|||");
 	}
     
 }

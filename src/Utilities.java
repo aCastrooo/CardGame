@@ -170,14 +170,13 @@ public class Utilities{
     
     private static boolean checkIfSameID(int playerID, Player[] players) {
     	
-    	for(int i = 0; i < players.length; i++){
-    		if(players[i] != null){
-    			if(players[i].getPlayerID() == playerID){
-    				return true;
-    			}
-    		}
-    	}
-    	
+		for(int i = 0; i < players.length; i++){
+			if(players[i] != null){
+				if(players[i].getPlayerID() == playerID){
+					return true;
+				}
+			}
+		}
 		return false;
 	}
 
@@ -219,7 +218,6 @@ public class Utilities{
         
         player.setHand(hand);
         return deck;
-        
     }
     
     
@@ -299,14 +297,14 @@ public class Utilities{
         for(int i = 0; i < players.length; i++){
         	
         	if(players[i] != null){
-            
+        		
 	            //Do not compare the player with himself, so the loop just continues
 	            //If they are different IDs, then just compare the scores
 	            if(players[i].getPlayerID() == player.getPlayerID()){
 	                continue;
 	            }
 	            else{
-	                
+	            	
 	                //If the player is not leading by two against all other players, the else block code will run and will return false
 	                if(Math.abs(player.getScore() - players[i].getScore()) >= 2){
 	                    isLeading = true;
@@ -319,9 +317,7 @@ public class Utilities{
         	}
             
         }
-        
         return isLeading;
-        
     }
     
     /**
@@ -340,9 +336,7 @@ public class Utilities{
                 return true;
             }
         }
-        
         return false;
-        
     }
     
     
@@ -371,7 +365,5 @@ public class Utilities{
         //If there are no cards in play we return -2 because -1 is the rank of a penalty card
 		return -2;
     }
-    
-    
     
 }
