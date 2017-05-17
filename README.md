@@ -26,7 +26,7 @@ The game will initially start players off with drawing two cards for them. When 
 4) Quit the Game   - Leaves the game  
   
 ## How To Run:
-Running is simple. In your terminal, cd to the /src/ folder and copy/paste the following in there:
+Running is simple. In your terminal, cd to the /src/ folder where you downloaded this and copy/paste the following in there:
   
 ```terminal  
 javac Gameplay.java Player.java Card.java Utilities.java  
