@@ -18,7 +18,10 @@ Clubs
 Players are represented via a unique ID number. This ID is randomized between 1 and 128. This allows players with the same name to play the game.
 
 ## How To Play:
-The game will initially start players off with drawing two cards for them. When it is a player's turn they will draw a card. At this point if the player draws a penalty card, they will lose 1 point. If they draw a penalty card the player may choose to draw again, if players keep drawing penalty cards, they will continually be asked if they wish to draw again. Whether or not the draw will happen is up to the player.Players may only hold up to 3 cards in their hand. 
+The game will initially start players off with drawing two cards for them.  
+When it is a player's turn they will be notified via a sound que to draw a card.  
+At this point if the player draws a penalty card, they will lose 1 point. If they draw a penalty card the player may choose to draw again, if players keep drawing penalty cards, they will continually be asked if they wish to draw again. Whether or not the draw will happen is up to the player.  
+Players may only hold up to 3 cards in their hand. 
 #### Once a player draws, they must select between 4 options:
 1) View their hand - Prints out your hand
 2) Play a Card     - Select a card to put in play
