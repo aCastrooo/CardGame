@@ -4,7 +4,9 @@ This is a card game implementation for Maxeta Technologies
 ## About the game:
 This is a card game that pits up to 4 players against each other.
 The aim of the game is to put down a card that is worth more than your opponents.    
+  
 Each player starts with three cards in their hand and may choose any card to put into play.  
+  
 The game is over when either one player remains (from other players leaving), or if one player reaches 21 points with a 2 point lead over everyone else, at which point, that player wins the game.  
 ### Cards:
 Cards are represented via their name, suit, and value. They have a hidden rank that denotes which cards are worth more than others. Rank calculation: (card number) + (suit * 2) = rank.  
