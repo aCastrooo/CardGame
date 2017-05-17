@@ -1,5 +1,6 @@
 # Card Royale - Fulltime Project Card Game [![Travis branch](https://img.shields.io/travis/rust-lang/rust/master.svg)]()  
-This is a card game implementation for Maxeta Technologies
+This is a card game implementation for Maxeta Technologies  
+It was created in the Eclipse Development Environment
 
 ## About the game:
 This is a card game that pits up to 4 players against each other.
