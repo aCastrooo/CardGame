@@ -1,4 +1,4 @@
-# Card Royale - Fulltime Project Card Game [![Travis branch](https://img.shields.io/travis/rust-lang/rust/master.svg)]()  
+# Card Royale - Fulltime Project Card Game 
 This is a card game implementation for Maxeta Technologies  
 It was created in the Eclipse Development Environment
 Language Used: Java
