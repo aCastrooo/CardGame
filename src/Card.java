@@ -2,7 +2,7 @@
  * The Card class defines a card in the game
  *
  * @author   Anthony Castronuovo
- * @version  1.0
+ * @version  1.1
  * Created:  5.15.2017
  */
 

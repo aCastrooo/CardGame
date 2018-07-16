@@ -2,7 +2,7 @@
  * The Player class simulates a player in the card game
  *
  * @author   Anthony Castronuovo
- * @version  1.0
+ * @version  1.1
  * Created:  5.15.2017
  */
 
@@ -356,7 +356,7 @@ public class Player{
 	@SuppressWarnings("deprecation")
 	public void leaveGame(Player[] players) throws IOException, InterruptedException {
 		
-    	String pathToSound = "C:/Users/Anthony/workspace/CardGame/sounds/game_over.wav";
+    	String pathToSound = "../sounds/game_over.wav";
 		    	
 		//Sets the player who decided to leave to null in the players array and updates the nullCount
 		for(int i = 0; i < players.length; i++){

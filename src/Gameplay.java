@@ -2,7 +2,7 @@
  * The Gameplay class holds the main logic of the game
  *
  * @author   Anthony Castronuovo
- * @version  1.0
+ * @version  1.1
  * Created:  5.15.2017
  */
 
@@ -41,7 +41,7 @@ public class Gameplay{
 	public static void playGame() throws IOException, InterruptedException{
     	
     	//Path to the audio file
-    	String pathToSound = "C:/Users/Anthony/workspace/CardGame/sounds/notificationSound.wav";
+    	String pathToSound = "../sounds/notificationSound.wav";
     	
         //Keeps track of the when players go
         int i = 0;
@@ -200,7 +200,7 @@ public class Gameplay{
      */
 	@SuppressWarnings("deprecation")
 	public static void congrats(Player player) throws IOException, InterruptedException{
-    	String pathToSound = "C:/Users/Anthony/workspace/CardGame/sounds/win.wav";
+    	String pathToSound = "../sounds/win.wav";
     	
         System.out.println("|||****************************|||");
         System.out.println("|||       Congratulations!     |||");
